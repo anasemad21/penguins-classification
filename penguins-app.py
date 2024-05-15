@@ -68,13 +68,9 @@ else:
 import os
 
 # Get the directory of the current script
-current_dir = os.path.dirname(os.path.abspath(__file__))
+with open('penguins_clf.pkl', 'rb') as f:
+        load_clf = pickle.load(f)
 
-# Construct the absolute file path for the pickled model
-model_path = os.path.join(current_dir, 'penguins_clf.pkl')
-
-# Reads in saved classification model
-load_clf = pickle.load(open(model_path, 'rb'))
 
 
 # Apply model to make predictions
