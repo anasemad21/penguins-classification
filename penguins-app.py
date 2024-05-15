@@ -65,13 +65,8 @@ else:
     st.write(df)
 
 # Reads in saved classification model
-import os
 
-# Get the directory of the current script
-with open('penguins_clf.pkl', 'rb') as f:
-        load_clf = pickle.load(f)
-
-
+load_clf = pickle.load(open('penguins_clf.pkl', 'rb'))
 
 # Apply model to make predictions
 prediction = load_clf.predict(df)
