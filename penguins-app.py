@@ -65,7 +65,17 @@ else:
     st.write(df)
 
 # Reads in saved classification model
-load_clf = pickle.load(open('penguins_clf.pkl', 'rb'))
+import os
+
+# Get the directory of the current script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute file path for the pickled model
+model_path = os.path.join(current_dir, 'penguins_clf.pkl')
+
+# Reads in saved classification model
+load_clf = pickle.load(open(model_path, 'rb'))
+
 
 # Apply model to make predictions
 prediction = load_clf.predict(df)
